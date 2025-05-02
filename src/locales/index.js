@@ -116,6 +116,7 @@ i18n.use(initReactI18next).init({
           productsTitle:"نحن نقدم تجربة مخصصة، ونصمم خدماتنا لتلبية احتياجاتك وتطلعاتك الفريدة.",
           viewMore:"عرض المزيد",
           whoWeAre:"من نحن",
+          location:"الموقع",
         },
     },
     en: {
@@ -228,6 +229,7 @@ i18n.use(initReactI18next).init({
           productsTitle:"We offer a bespoke experience, tailoring our services to meet your unique needs and aspirations.",
           viewMore:"View More ",
           whoWeAre:"Who We Are",
+          location:"Location",
       },
     },
   },

@@ -28,9 +28,9 @@ const Projects = () => {
   ) : (
     isSuccess && (
       <div >
-        <div className="text-black w-full  flex  py-[30px]">
-        <div className="bg-black flex  w-[45%] h-[3px] lg:mt-[2%] mt-[10%] ml-[10px]"></div>
-          <div className="flex  text-huge">
+        <div className="text-black w-full  flex  my-[30px]">
+        <div className="bg-black flex  w-[45%] h-[3px] sm:mt-[35px] mt-[20px] ml-[10px]"></div>
+          <div className="flex  sm:text-bigger text-med ">
             {t("projects")}
           </div>
           

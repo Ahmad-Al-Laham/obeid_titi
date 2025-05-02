@@ -16,7 +16,7 @@ const PorfileBody = () => {
   const {t,i18n} = useTranslation()
   return (
     <div className="max-w-[1920px] font-Bitter">
-      <div className="flex text-black pt-[30px]">
+      <div dir={i18n.language==="en" ? "ltr" : "rtl"} className="flex text-black pt-[30px]">
         <div className="bg-black h-[3px] sm:w-[150px] w-[100px] sm:mt-[35px] mt-[20px]"></div>
         <div className="sm:text-bigger text-med pl-[25px]"> {t("AboutUs")}</div>
       </div>

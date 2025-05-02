@@ -13,7 +13,7 @@ const AboutUs = () => {
     <div>
       <div className="flex text-black py-[30px]">
         <div className="bg-black h-[3px]  w-[45%] sm:mt-[35px] mt-[20px]"></div>
-        <div className="sm:text-bigger text-med pl-[25px]"> {t("AboutUs")}</div>
+        <div className="sm:text-bigger text-small pl-[25px]"> {t("AboutUs")}</div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10  overflow-hidden  justify-center   px-[10%] mb-[30px]">
