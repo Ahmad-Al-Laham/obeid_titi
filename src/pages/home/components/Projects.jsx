@@ -31,7 +31,7 @@ const Projects = () => {
         <div className="text-black w-full  flex  py-[30px]">
         <div className="bg-black flex  w-[45%] h-[3px] lg:mt-[2%] mt-[10%] ml-[10px]"></div>
           <div className="flex  text-huge">
-            Projects
+            {t("projects")}
           </div>
           
         </div>
@@ -136,9 +136,9 @@ const Projects = () => {
             navigate("/projects")
           }} >
             <div className="text-smaller pr-[5px]  ">
-                View More
+                {t("viewMore")}
             </div>
-            <img src={Arrow} alt="" className="h-[25px] w-[25px] group-hover:translate-x-2 transition-all duration-300"/>
+            <img src={Arrow} alt="" className={`h-[25px] w-[25px] ${i18n.language==="ar"? "group-hover:-translate-x-2":"group-hover:translate-x-2"} ${i18n.language==="ar"? "rotate-[180deg]":""} transition-all duration-300`}/>
           </div>
         </div>
       </div>

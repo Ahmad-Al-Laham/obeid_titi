@@ -6,9 +6,11 @@ import Products from "./components/Products";
 import Location from "./components/Location";
 import Contact from "./components/Contact";
 import ContactTitle from "./components/ContactTitle";
+import { useTranslation } from "react-i18next";
 const HomePage = () => {
+  const {i18n} = useTranslation()
   return (
-    <div className=" font-Bitter max-w-[1920px]">
+    <div dir={i18n.language==="en" ? "ltr" : "rtl"} className=" font-Bitter max-w-[1920px]">
       <HomeHeader />
       <AboutUs/>
       <Products/>

@@ -44,7 +44,7 @@ const NavBar = () => {
                 ? " bg-primary/90 shadow-2xl backdrop-blur-md"
                 : "shadow-none bg-transparent"
             }`}>
-              <div className=" lg:pl-[10%] flex  justify-center items-center pb-[15px]">
+              <div className={` ${i18n.language==="en" ? "lg:pl-[10%]" :"lg:pr-[13%]"}  flex  justify-center items-center pb-[15px]`}>
                 <SearchBar/>
               </div>
               <div className="flex  justify-center items-center ">

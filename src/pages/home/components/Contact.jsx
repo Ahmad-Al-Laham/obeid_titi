@@ -58,7 +58,7 @@ const Contact = () => {
   }
   return (
     <div
-      className="flex justify-center my-[10%] "
+      className="flex justify-center  "
       dir={i18n.language == "en" ? "ltr" : "rtl"}>
       <div
         className=" h-full  bg-cover bg-no-repeat bg-center w-[80%] rounded-md rounded-t-md "
@@ -77,7 +77,7 @@ const Contact = () => {
                   value={values.email}
                   error={errors?.email}
                   containerStyle={
-                    "rounded-lg bg-white text-small mt-[20px] text-white"
+                    "rounded-lg bg-white text-small mt-[20px] text-black"
                   }
                 />
               </div>
@@ -90,7 +90,7 @@ const Contact = () => {
                   value={values.phoneNumber}
                   error={errors?.phoneNumber}
                   containerStyle={
-                    "rounded-lg bg-white text-small my-[20px] text-white"
+                    "rounded-lg bg-white text-small my-[20px] text-black"
                   }
                 />
               </div>
@@ -104,7 +104,7 @@ const Contact = () => {
                 textAreaRows={5}
                 error={errors?.message}
                 containerStyle={
-                  "rounded-lg bg-white text-small mb-[20px] text-white"
+                  "rounded-lg bg-white text-small mb-[20px] text-black"
                 }
               />
               <div className="">

@@ -1,9 +1,16 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 const Location = () => {
+  const {i18n , t} = useTranslation()
   return (
     <div>
-        <div className="text-black lg:text-bigger text-med font-semibold pl-[5%]"> Location</div>
+                <div className="text-black w-full  flex  py-[30px]">
+        <div className="bg-black flex  w-[45%] h-[3px] lg:mt-[2%] mt-[10%] ml-[10px]"></div>
+          <div className="flex  text-huge">
+            Location
+          </div>
+          
+        </div>
       <div className=" grid grid-cols-1  sm:flex my-[5%] px-[5%] sm:px-[0%] " >
         <div className="sm:h-[70vh]  px-[5%] ">
           <iframe
@@ -11,14 +18,15 @@ const Location = () => {
             className="h-full sm:h-full w-[100%] sm:w-[400px] lg:w-[600px] xl:w-[800px] rounded-lg border-solid border-primary border-[10px] "></iframe>
         </div>
         <div className="text-primary flex flex-col justify-center ">
-          <div className="lg:text-big text-med font-semibold">Office</div>
+          <div className="lg:text-big text-med font-semibold">{t("Office")}</div>
           <div className=" sm:text-smaller  lg:text-small ">
-            Mazzeh Highway, Damascus, SyriaMohafaza Biulding 5 Choueifat Main
-            Street, Beirut, Lebanon
+              {t("OfficeSyriaLocation")}
+              <br />
+              {t("officeLebanonLocation")}
           </div>
-          <div className="pt-[10%] lg:text-big text-med font-semibold">Showroom</div>
+          <div className="pt-[10%] lg:text-big text-med font-semibold">{t("Showroom")}</div>
           <div className="sm:text-smaller  lg:text-small">
-          Abu Remaneh, Damascus, Syria
+          {t("showroomLocation")}
           </div>
         </div>
       </div>

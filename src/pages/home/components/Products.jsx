@@ -24,11 +24,11 @@ const Products = () => {
     isSuccess && (
       <div>
         <div className="flex justify-end items-end" >
-          <div className="text-black sm:text-bigger text-med  ">Products</div>
+          <div className="text-black sm:text-bigger text-med  ">{t("products")}</div>
           <div className="w-[41%] h-[3px] bg-black sm:mb-[2%] mb-[10%]"></div>
         </div>
         <div className="flex justify-center items-center text-black text-small text-center sm:py-[3%] py-[10%]">
-        We offer a bespoke experience, tailoring our services to meet your unique needs and aspirations.
+        {t("productsTitle")}
         </div>
         <div className="grid grid-cols-3">
           {data.ids.map((item, index) => {

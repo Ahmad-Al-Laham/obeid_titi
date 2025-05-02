@@ -11,18 +11,19 @@ import topLeft3 from "../../../assets/images/profile/img3/topLeft.png";
 import topRight3 from "../../../assets/images/profile/img3/topRight.png";
 import bottomLeft3 from "../../../assets/images/profile/img3/bottomLeft.png";
 import bottomRight3 from "../../../assets/images/profile/img3/bottomRight.png";
+import { useTranslation } from "react-i18next";
 const PorfileBody = () => {
+  const {t,i18n} = useTranslation()
   return (
     <div className="max-w-[1920px] font-Bitter">
       <div className="flex text-black pt-[30px]">
         <div className="bg-black h-[3px] sm:w-[150px] w-[100px] sm:mt-[35px] mt-[20px]"></div>
-        <div className="sm:text-bigger text-med pl-[25px]"> About Us</div>
+        <div className="sm:text-bigger text-med pl-[25px]"> {t("AboutUs")}</div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10  overflow-hidden  justify-center   px-[10%] mb-[30px]">
         <div className="text-black sm:text-small text-smaller order-2 lg:order-1  sm:w-full lg:pr-[20%] xl:pr-[0%] ">
-          We are passionate about crafting furniture that transcends trends and
-          becomes an enduring legacy in your home."
+          {t("profile1")}
         </div>
         <div className=" gap-5 flex flex-col  order-1 lg:order-2  py-10 justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5   transition-all duration-300">
@@ -79,14 +80,12 @@ const PorfileBody = () => {
           </div>
         </div>
         <div className="text-black sm:text-small text-smaller  py-10 lg:pl-[25%] xl:pl-[0%] ">
-          Our designs seamlessly blend heritage and innovation, creating pieces
-          that exude sophistication and timeless beauty."
+        {t("profile2")}
         </div>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10 overflow-hidden justify-center px-[10%]">
         <div className="text-black sm:text-small text-smaller order-2 lg:order-1 py-10 lg:pr-[20%] xl:pr-[0%] ">
-          We collaborate with discerning clients to bring their unique visions
-          to life, forging spaces that epitomize luxury and personal expression
+        {t("profile3")}
         </div>
         <div className=" gap-5 flex flex-col order-1 lg:order-2 justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5  transition-all duration-300">
