@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useGetActiveProjectsQuery } from "../../../redux/projects/projectSlice";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -19,9 +19,21 @@ const ProjectsBody = () => {
   const { i18n, t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [selectedImg, setSelectedImg] = useState("");
-  const [selectedDisc, setSelctedDisc] = useState("");
+  const [selectedDisc, setSelectedDisc] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const [selectedImages, setSelectedImages] = useState("");
+  useEffect(() => {
+    if (data?.ids?.length) {
+      const defaultProject = data.entities[data.ids[0]];
+      setSelectedImg(API_BASE_URL + defaultProject.primaryImage.url);
+      setSelectedDisc(
+        i18n.language === "en" ? defaultProject.nameEn : defaultProject.nameAr
+      );
+      setSelectedId(defaultProject.id);
+      setSelectedImages(defaultProject.images.map((image) => image.url));
+      setOpen(true);
+    }
+  }, [data]);
   //  const [imagesLength , setImagesLength] =useState("")
 
   return isLoading || isFetching ? (
@@ -120,7 +132,7 @@ const ProjectsBody = () => {
             {t("MoreProjects")}
           </div>
         )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 justify-center items-center py-[30px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center py-[30px]">
           {data.ids.map((item, index) => {
             return (
               <div key={index} className="px-[20px]">
@@ -137,7 +149,7 @@ const ProjectsBody = () => {
                     setSelectedImg(
                       API_BASE_URL + data.entities[item].primaryImage.url
                     );
-                    setSelctedDisc(
+                    setSelectedDisc(
                       i18n.language === "en"
                         ? data.entities[item].nameEn
                         : data.entities[item].nameAr

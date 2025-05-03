@@ -10,7 +10,7 @@ import Logo from "../../../assets/logos/logo.svg";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { MdSearch } from "react-icons/md";
-import Language from "./Language"
+import Language from "./Language";
 const NavBar = () => {
   const { t, i18n } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -36,7 +36,6 @@ const NavBar = () => {
       <div className="h-[110px] w-full font-Bitter absolute">
         <div
           className={`fixed max-w-[1920px] w-full top-2.5 left-1/2 right-1/2 justify-center   -translate-x-1/2 z-50 flex gap-x-2 sm:gap-x-6 transition-all duration-300 px-[3%]`}>
-        
           <div
             dir={i18n.language == "en" ? "ltr" : "rtl"}
             className={` transition-all duration-500 p-4 2xl:p-5 flex relative  justify-between items-center rounded-2xl shadow-md text-white w-full h-[75px] 2xl:h-[90px] gap-x-12 ${
@@ -44,64 +43,66 @@ const NavBar = () => {
                 ? " bg-primary/90 shadow-2xl backdrop-blur-md"
                 : "shadow-none bg-transparent"
             }`}>
-              <div className={`   flex  justify-center items-center pb-[15px] `}>
-                <SearchBar/>
+            <div className={`   flex  justify-center items-center pb-[15px] `}>
+              <SearchBar />
+            </div>
+            <div
+              className={`flex  justify-center items-center ${
+                i18n.language === "en" ? "pr-[8%]" : "pl-[8%]"
+              }`}>
+              <div
+                className={`flex justify-center items-center gap-x-8 2xl:gap-x-12  max-md:hidden  `}
+                dir={i18n.language == "en" ? "ltr" : "rtl"}>
+                {NavElement.map((e, index) => {
+                  return (
+                    <LinkElement
+                      key={index}
+                      name={t(e.name)}
+                      link={e.link}
+                      selectedLink={selectedLink}
+                      header={header}
+                      styled={"max-lg:hidden"}
+                    />
+                  );
+                })}
               </div>
-              <div className={`flex  justify-center items-center ${i18n.language==="en" ? "pr-[5%]":"pl-[5%]"}`}>
-            <div
-              className={`flex justify-center items-center gap-x-8 2xl:gap-x-12  max-md:hidden  `}
-              dir={i18n.language == "en" ? "ltr" : "rtl"}>
-              {NavElement.map((e, index) => {
-                return (
-                  <LinkElement
-                    key={index}
-                    name={t(e.name)}
-                    link={e.link}
-                    selectedLink={selectedLink}
-                    header={header}
-                    styled={"max-lg:hidden"}
-                  />
-                );
-              })}
+              <div>
+                <img
+                  src={Logo}
+                  alt="Logo BIM"
+                  className="h-[110px] w-[110px]  min-w-[50px] min-h-[50px]  cursor-pointer "
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                />
+              </div>
+              <div
+                className="flex justify-center items-center gap-x-8 2xl:gap-x-12 max-md:hidden"
+                dir={i18n.language == "en" ? "ltr" : "rtl"}>
+                {NavElement2.map((e, index) => {
+                  return (
+                    <LinkElement
+                      key={index}
+                      name={t(e.name)}
+                      link={e.link}
+                      selectedLink={selectedLink}
+                      header={header}
+                      styled={"max-lg:hidden"}
+                    />
+                  );
+                })}
+              </div>
             </div>
-            <div>
-            <img
-              src={Logo}
-              alt="Logo BIM"
-              className="h-[110px] w-[110px]  min-w-[50px] min-h-[50px]  cursor-pointer "
-              onClick={() => {
-                navigate("/");
-              }}
-            />
-            </div>
-            <div
-              className="flex justify-center items-center gap-x-8 2xl:gap-x-12 max-md:hidden"
-              dir={i18n.language == "en" ? "ltr" : "rtl"}>
-              {NavElement2.map((e, index) => {
-                return (
-                  <LinkElement
-                    key={index}
-                    name={t(e.name)}
-                    link={e.link}
-                    selectedLink={selectedLink}
-                    header={header}
-                    styled={"max-lg:hidden"}
-                  />
-                );
-              })}
-            </div>
-            </div>
-            <div className="   flex justify-center items-center">
-              <Language/>
+            <div className=" sm:block hidden ">
+              <Language />
             </div>
 
             <div className="flex justify-center items-center gap-x-2 sm:gap-x-6 lg:hidden ">
               <div
                 onClick={() => setMobileOpen(true)}
                 className="cursor-pointer text-whiteflex justify-center items-center gap-x-2 lg:hidden">
-                <MdDehaze size={30}  className=" translate-r-150"/>
+                <MdDehaze size={30} className=" translate-r-150" />
               </div>
-              
             </div>
           </div>
         </div>
@@ -123,22 +124,24 @@ const NavBar = () => {
           />
         ))}
         {NavElement2.map((e, index) => {
-                return (
-                  <LinkElement
-                  key={e.link}
-                    name={t(e.name)}
-                    link={e.link}
-                    selectedLink={selectedLink}
-                    styled={"!text-white"}
-                    onClick={() => {
-                      setMobileOpen(false);
-                      handleScroll(e.link);
-                      setSelectedLink(e.link);
-                    }}
-                    
-                  />
-                );
-              })}
+          return (
+            <LinkElement
+              key={e.link}
+              name={t(e.name)}
+              link={e.link}
+              selectedLink={selectedLink}
+              styled={"!text-white"}
+              onClick={() => {
+                setMobileOpen(false);
+                handleScroll(e.link);
+                setSelectedLink(e.link);
+              }}
+            />
+          );
+        })}
+        <div className="    sm:hidden block">
+          <Language />
+        </div>
       </Drawer>
     </>
   );

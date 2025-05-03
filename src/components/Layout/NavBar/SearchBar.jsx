@@ -16,7 +16,7 @@ const SearchBar = () => {
         //   background:
         //     "linear-gradient(180deg, #0092AD 0%, #094C6C 24.48%, #F7B507 43.23%, #E98005 65.1%, #B34B95 81.25%, #672971 99.48%",
         // }}
-        className={`p-[2px] rounded-lg flex justify-center items-center ${
+        className={`p-[2px] rounded-lg flex justify-center items-center w-full ${
           open && "shadow-lg drop-shadow-lg"
         }  transition-all duration-700`}
       >

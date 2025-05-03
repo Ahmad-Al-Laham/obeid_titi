@@ -6,7 +6,7 @@ const Location = () => {
     <div>
         <div className="text-black w-full  flex justify-start items-center py-[30px]">
         <div className="bg-black flex  w-[42%] h-[3px] "></div>
-          <div className="flex  sm:text-bigger text-med font-[400]  px-[25px]">
+          <div className="flex  sm:text-bigger text-med font-[400]  px-[15px]">
             {t("location")}
           </div>
           

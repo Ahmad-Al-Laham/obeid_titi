@@ -42,10 +42,10 @@ export default function Dropdown() {
         <div
           ref={ref}
           onClick={() => setOpen(false)}
-          className={`${open ? "scale-100" : "scale-0"} absolute z-10 mt-4 ${
+          className={`${open ? "scale-100" : "scale-0"} absolute z-10 mt-4  ${
             i18n.language == "en"
-              ? "origin-top-right  right-0"
-              : "origin-top-left left-0"
+              ? "origin-top  right-0 translate-x-[55px]"
+              : "origin-top left-0 -translate-x-[50px]"
           } top-7 bg-third/80 rounded-lg shadow-2xl transition-all duration-300 p-4 space-y-2 text-white font-medium text-smaller w-40`}
         >
           <div

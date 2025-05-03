@@ -1,11 +1,15 @@
-import React, { useState  , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetActiveProjectsQuery } from "../../../redux/projects/projectSlice";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Loader from "../../../components/UI/Loader";
 import Slider from "react-slick";
 import { API_BASE_URL } from "../../../constants";
-import Arrow from '../../../assets/icons/Arrow.svg'
+import Arrow from "../../../assets/icons/Arrow.svg";
+import {
+  SampleNextArrow,
+  SamplePrevArrow,
+} from "../../../components/UI/SliderArrows";
 
 const Projects = () => {
   const { data, isSuccess, isFetching, isLoading, isError } =
@@ -17,15 +21,17 @@ const Projects = () => {
   const [selectedDisc, setSelectedDisc] = useState("");
   const [selectedId, setSelectedId] = useState("");
 
+  useEffect(() => {
+    if (isSuccess && data?.ids?.length) {
+      const defaultItem = data.entities[data.ids[0]];
+      setSelectedImg(API_BASE_URL + defaultItem.primaryImage.url);
+      setSelectedDisc(
+        i18n.language === "en" ? defaultItem.nameEn : defaultItem.nameAr
+      );
+      setSelectedId(defaultItem.id);
+    }
+  }, [data, isSuccess, i18n.language]);
   
-useEffect(() => {
-  if (isSuccess && data?.ids?.length) {
-    const defaultItem = data.entities[data.ids[0]];
-    setSelectedImg(API_BASE_URL + defaultItem.primaryImage.url);
-    setSelectedDisc(i18n.language === "en" ? defaultItem.nameEn : defaultItem.nameAr);
-    setSelectedId(defaultItem.id);
-  }
-}, [data, isSuccess, i18n.language]);
   return isLoading || isFetching ? (
     <div className="py-44 flex justify-center items-center relative">
       <Loader />
@@ -36,13 +42,12 @@ useEffect(() => {
     </div>
   ) : (
     isSuccess && (
-      <div >
+      <div>
         <div className="text-black w-full  flex justify-start items-center my-[30px]">
-        <div className="bg-black flex  w-[43%] h-[3px] "></div>
-          <div className="flex  sm:text-bigger text-med px-[25px] font-[400]">
+          <div className="bg-black flex  w-[43%] h-[3px] "></div>
+          <div className="flex  sm:text-bigger text-med px-[15px] font-[400]">
             {t("projects")}
           </div>
-          
         </div>
         <div className="flex flex-col justify-center items-center">
           <div
@@ -72,10 +77,12 @@ useEffect(() => {
             slidesToShow={1}
             touchMove={true}
             autoplay={false}
-            arrows={false}
+            arrows={true}
             dots={false}
             lazyLoad="progressive"
             className="h-full w-full mt-10"
+            nextArrow={<SampleNextArrow />}
+            prevArrow={<SamplePrevArrow />}
             responsive={[
               {
                 breakpoint: 2000,
@@ -104,7 +111,9 @@ useEffect(() => {
             ]}>
             {data.ids.map((item, index) => {
               return (
-                <div key={index} className="px-[20px] focus:outline-none active:outline-none">
+                <div
+                  key={index}
+                  className="px-[20px] focus:outline-none active:outline-none">
                   <img
                     src={API_BASE_URL + data.entities[item].primaryImage.url}
                     alt={data.entities[item].nameEn}
@@ -128,7 +137,8 @@ useEffect(() => {
                       setOpen(true);
                     }}
                   />
-                  <div className={`text-black text-small ${
+                  <div
+                    className={`text-black text-small ${
                       selectedId === data.entities[item].id
                         ? "text-primary"
                         : "text-black"
@@ -141,13 +151,23 @@ useEffect(() => {
               );
             })}
           </Slider>
-          <div className="flex bg-primary px-[12px] my-[30px] rounded-tr-lg rounded-bl-lg cursor-pointer group "  onClick={()=>{
-            navigate("/projects")
-          }} >
-            <div className="text-smaller pr-[5px]  ">
-                {t("viewMore")}
-            </div>
-            <img src={Arrow} alt="" className={`h-[25px] w-[25px] ${i18n.language==="ar"? "group-hover:-translate-x-2":"group-hover:translate-x-2"} ${i18n.language==="ar"? "rotate-[180deg]":""} transition-all duration-300`}/>
+          <div
+            className="flex bg-primary px-[12px] my-[30px] rounded-tr-lg rounded-bl-lg cursor-pointer group "
+            onClick={() => {
+              navigate("/projects");
+            }}>
+            <div className="text-smaller pr-[5px]  ">{t("viewMore")}</div>
+            <img
+              src={Arrow}
+              alt=""
+              className={`h-[25px] w-[25px] ${
+                i18n.language === "ar"
+                  ? "group-hover:-translate-x-2"
+                  : "group-hover:translate-x-2"
+              } ${
+                i18n.language === "ar" ? "rotate-[180deg]" : ""
+              } transition-all duration-300`}
+            />
           </div>
         </div>
       </div>
