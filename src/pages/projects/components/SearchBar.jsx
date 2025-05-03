@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const SearchBar = () => {
   const { i18n, t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const navigate = useNavigate();
   return (
     <div className="w-full flex justify-center items-center mt-4">
@@ -23,7 +23,7 @@ const SearchBar = () => {
         <div
           className={`h-14 ${
             open
-              ? "w-[250px] sm:w-[250px] md:w-[250px] bg-white/80 px-4"
+              ? "w-[250px] sm:w-[250px] md:w-[500px] lg:w-[700px] xl:w-[900px] bg-white/80 px-4"
               : "w-14 bg-transparent px-1"
           } rounded-lg transition-all duration-700 flex justify-between items-center `}
         >
@@ -39,21 +39,15 @@ const SearchBar = () => {
           />
             <div className={`${open?" bg-transparent":"bg-white"} p-[5px] rounded-lg`}>
           <MdSearch
-            className={`h-[30px] w-auto rounded-full text-med ${
+            className={`h-full w-auto rounded-full text-med ${
               open ? "text-primary" : "text-primary"
             } cursor-pointer`}
-            onClick={() => {
-              if (searchTerm.length == 0) setOpen(!open);
-              else {
-                sessionStorage.setItem("searchUrl", searchTerm);
-                navigate(`/products/${searchTerm}`);
-              }
-            }}
           />
           </div>
         </div>
       </div>
     </div>
   );
-};
-export default SearchBar;
+}
+
+export default SearchBar

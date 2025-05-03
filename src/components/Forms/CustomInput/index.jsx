@@ -56,7 +56,7 @@ const CustomInput = ({
           !noInput &&
           `${
             error
-              ? "border-red-500 border-[2px]"
+              ? "border-b-red-500 border-b-[2px]"
               : "border-transparent border-b-[1px]"
           } bg-white w-full h-full`
         }  px-4 py-3 flex w-full items-center relative ${containerStyle} ${
@@ -74,7 +74,7 @@ const CustomInput = ({
             id={id}
             value={value ?? ""}
             onChange={onChange}
-            className={`bg-transparent py-1 px-2 w-full outline-none placeholder:text-black ${customStyle} ${
+            className={`bg-transparent py-1 px-2 w-full outline-none  ${customStyle} ${
               select && "cursor-pointer"
             }`}
             rows={textAreaRows ?? 15}
@@ -87,7 +87,7 @@ const CustomInput = ({
           <input
             type={type}
             //change placeholder color
-            className={`bg-transparent py-1 px-2 w-full outline-none placeholder:text-black ${customStyle} ${
+            className={`bg-transparent py-1 px-2 w-full outline-none  ${customStyle} ${
               select && "cursor-pointer"
             }`}
             name={name}

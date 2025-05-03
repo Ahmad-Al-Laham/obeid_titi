@@ -67,7 +67,7 @@ const NavBar = () => {
             <img
               src={Logo}
               alt="Logo BIM"
-              className="h-[110px] w-[110px] cursor-pointer translate-y-1"
+              className="h-[110px] w-[110px]   min-w-[50px] min-h-[50px]  cursor-pointer "
               onClick={() => {
                 navigate("/");
               }}
@@ -93,11 +93,11 @@ const NavBar = () => {
               <Language/>
             </div>
 
-            <div className="flex justify-center items-center gap-x-2 sm:gap-x-6">
+            <div className="flex justify-center items-center gap-x-2 sm:gap-x-6 ">
               <div
                 onClick={() => setMobileOpen(true)}
                 className="cursor-pointer text-whiteflex justify-center items-center gap-x-2 lg:hidden">
-                <MdDehaze size={24} />
+                <MdDehaze size={30}  className=" translate-r-150"/>
               </div>
               
             </div>
@@ -120,6 +120,23 @@ const NavBar = () => {
             }}
           />
         ))}
+        {NavElement2.map((e, index) => {
+                return (
+                  <LinkElement
+                  key={e.link}
+                    name={t(e.name)}
+                    link={e.link}
+                    selectedLink={selectedLink}
+                    styled={"!text-white"}
+                    onClick={() => {
+                      setMobileOpen(false);
+                      handleScroll(e.link);
+                      setSelectedLink(e.link);
+                    }}
+                    
+                  />
+                );
+              })}
       </Drawer>
     </>
   );

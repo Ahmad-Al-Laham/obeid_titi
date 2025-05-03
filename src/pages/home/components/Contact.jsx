@@ -79,6 +79,7 @@ const Contact = () => {
                   containerStyle={
                     "rounded-lg bg-white text-small mt-[20px] text-black"
                   }
+                customStyle={"placeholder:text-black"}
                 />
               </div>
               <div className="flex flex-row gap-x-2 mt-2">
@@ -92,6 +93,7 @@ const Contact = () => {
                   containerStyle={
                     "rounded-lg bg-white text-small my-[20px] text-black"
                   }
+                  customStyle={"placeholder:text-black"}
                 />
               </div>
               <CustomInput
@@ -104,8 +106,9 @@ const Contact = () => {
                 textAreaRows={5}
                 error={errors?.message}
                 containerStyle={
-                  "rounded-lg bg-white text-small mb-[20px] text-black"
+                  " rounded-lg bg-white text-small mb-[20px] text-black"
                 }
+                customStyle={"placeholder:text-black"}
               />
               <div className="">
                 <Button

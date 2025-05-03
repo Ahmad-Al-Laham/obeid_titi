@@ -117,6 +117,10 @@ i18n.use(initReactI18next).init({
           viewMore:"عرض المزيد",
           whoWeAre:"من نحن",
           location:"الموقع",
+          ProjectsDisc:"مشاريعنا هي شهادة على التزامنا بتجاوز التوقعات، وتحويل المساحات إلى ملاذات من الفخامة والمعيشة الراقية.",
+          search:"ابحث",
+          ProjectsDisc2:"من المفهوم إلى الإنجاز، نقوم بعناية فائقة بإختيار كل عنصر لضمان تحقيق رؤيتك ببراعة لا تشوبها شائبة والاهتمام بالتفاصيل",
+          MoreProjects:"مشاريع اخرى"
         },
     },
     en: {
@@ -230,7 +234,11 @@ i18n.use(initReactI18next).init({
           viewMore:"View More ",
           whoWeAre:"Who We Are",
           location:"Location",
-      },
+          ProjectsDisc:"Our projects are a testament to our commitment to surpassing expectations, transforming spaces into havens of luxury and refined living.",
+          search:"Search",
+          ProjectsDisc2:"From concept to completion, we meticulously curate every element to ensure your vision is realized with impeccable artistry and attention to detail",
+          MoreProjects:"Other Projects",
+        },
     },
   },
   lng: lnglocal ?? "en",

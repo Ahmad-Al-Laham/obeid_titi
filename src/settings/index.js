@@ -3,8 +3,8 @@ export const systemSettings = {
   colors: {
     light: {
       primary: "#C5A361",
-      secondary: "#fff",
-      third: "#2D1F04",
+      secondary: "#A9A9A9",
+      third: "#BDBDBD",
       fourth: "#79797C", 
       black: "#222222",
       white: "#FFFFFF",

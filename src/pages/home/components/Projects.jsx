@@ -95,7 +95,7 @@ const Projects = () => {
             ]}>
             {data.ids.map((item, index) => {
               return (
-                <div key={index} className="pl-[20px]">
+                <div key={index} className="px-[20px] focus:outline-none active:outline-none">
                   <img
                     src={API_BASE_URL + data.entities[item].primaryImage.url}
                     alt={data.entities[item].nameEn}
