@@ -37,7 +37,7 @@ const Projects = () => {
         </div>
         <div className="flex flex-col justify-center items-center">
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 px-[5%] ${
+            className={`grid grid-cols-1 md:grid-cols-2 px-[5%] ${
               open ? "block" : "hidden"
             }`}>
             {selectedImg && (
@@ -50,7 +50,7 @@ const Projects = () => {
               </div>
             )}
             {selectedDisc && (
-              <div className="text-black justify-center flex flex-col items-center">
+              <div className="text-black justify-center flex flex-col items-center sm:text-small text-smaller  ">
                 {selectedDisc}
               </div>
             )}
@@ -119,7 +119,7 @@ const Projects = () => {
                       setOpen(true);
                     }}
                   />
-                  <div className={`text-black text-smaller ${
+                  <div className={`text-black text-small ${
                       selectedId === data.entities[item].id
                         ? "text-primary"
                         : "text-black"
