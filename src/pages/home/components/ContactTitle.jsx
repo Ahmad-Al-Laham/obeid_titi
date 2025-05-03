@@ -4,9 +4,9 @@ const ContactTitle = () => {
   const {i18n , t} = useTranslation()
   return (
     <div>
-      <div className="flex justify-end items-end pb-[30px]" >
-        <div className="text-black sm:text-bigger text-med  ">{t("ContactUs")}</div>
-        <div className="w-[41%] h-[3px] bg-black sm:mb-[35px] mb-[20px]"></div>
+      <div className="flex justify-end items-center pb-[30px] " >
+        <div className="text-black sm:text-bigger text-med px-[25px] font-[400] ">{t("ContactUs")}</div>
+        <div className="w-[42%] h-[3px] bg-black "></div>
       </div>
     </div>
   );

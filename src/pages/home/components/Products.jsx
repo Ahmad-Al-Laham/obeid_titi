@@ -23,9 +23,9 @@ const Products = () => {
   ) : (
     isSuccess && (
       <div>
-        <div className="flex justify-end items-end" >
-          <div className="text-black sm:text-bigger text-med  ">{t("products")}</div>
-          <div className="w-[41%] h-[3px] bg-black sm:mb-[35px] mb-[20px]"></div>
+        <div className="flex justify-end items-center " >
+          <div className="text-black sm:text-bigger text-med font-[400]  px-[25px]">{t("products")}</div>
+          <div className="w-[43%] h-[3px] bg-black "></div>
         </div>
         <div className="flex justify-center items-center text-black text-small text-center sm:py-[3%] py-[10%]">
         {t("productsTitle")}

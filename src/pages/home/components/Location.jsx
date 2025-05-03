@@ -4,9 +4,9 @@ const Location = () => {
   const {i18n , t} = useTranslation()
   return (
     <div>
-                <div className="text-black w-full  flex  py-[30px]">
-        <div className="bg-black flex  w-[45%] h-[3px] sm:mt-[35px] mt-[20px] ml-[10px]"></div>
-          <div className="flex  sm:text-bigger text-med ">
+        <div className="text-black w-full  flex justify-start items-center py-[30px]">
+        <div className="bg-black flex  w-[42%] h-[3px] "></div>
+          <div className="flex  sm:text-bigger text-med font-[400]  px-[25px]">
             {t("location")}
           </div>
           

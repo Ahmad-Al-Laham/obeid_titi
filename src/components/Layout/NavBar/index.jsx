@@ -35,16 +35,16 @@ const NavBar = () => {
     <>
       <div className="h-[110px] w-full font-Bitter absolute">
         <div
-          className={`fixed max-w-[1920px] w-full top-2.5 left-1/2 right-1/2 justify-center   -translate-x-1/2 z-50 flex gap-x-2 sm:gap-x-6 transition-all duration-300 px-[3%]`}>
+          className={`fixed max-w-[1920px] w-full top-2.5 left-1/2 right-1/2 justify-between   -translate-x-1/2 z-50 flex gap-x-2 sm:gap-x-6 transition-all duration-300 px-[3%]`}>
         
           <div
             dir={i18n.language == "en" ? "ltr" : "rtl"}
-            className={` transition-all duration-500 p-4 2xl:p-5 flex relative  justify-between items-center rounded-2xl shadow-md text-white w-full h-[75px] 2xl:h-[90px] gap-x-12 ${
+            className={` transition-all duration-500 p-4 2xl:p-5 flex relative  justify-center items-center rounded-2xl shadow-md text-white w-full h-[75px] 2xl:h-[90px] gap-x-12 ${
               header
                 ? " bg-primary/90 shadow-2xl backdrop-blur-md"
                 : "shadow-none bg-transparent"
             }`}>
-              <div className={` ${i18n.language==="en" ? "lg:pl-[10%]" :"lg:pr-[13%]"}  flex  justify-center items-center pb-[15px]`}>
+              <div className={`   flex  justify-center items-center pb-[15px]`}>
                 <SearchBar/>
               </div>
               <div className="flex  justify-center items-center ">
@@ -64,14 +64,16 @@ const NavBar = () => {
                 );
               })}
             </div>
+            <div>
             <img
               src={Logo}
               alt="Logo BIM"
-              className="h-[110px] w-[110px]   min-w-[50px] min-h-[50px]  cursor-pointer "
+              className="h-[110px] w-[110px]  min-w-[50px] min-h-[50px]  cursor-pointer "
               onClick={() => {
                 navigate("/");
               }}
             />
+            </div>
             <div
               className="flex justify-center items-center gap-x-8 2xl:gap-x-12 max-md:hidden"
               dir={i18n.language == "en" ? "ltr" : "rtl"}>
