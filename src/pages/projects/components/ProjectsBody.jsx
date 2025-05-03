@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetActiveProjectsQuery } from "../../../redux/projects/projectSlice";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -22,6 +22,7 @@ const ProjectsBody = () => {
   const [selectedDisc, setSelectedDisc] = useState("");
   const [selectedId, setSelectedId] = useState("");
   const [selectedImages, setSelectedImages] = useState("");
+  const [isClicked , setIsClicked] = useState(false)
   useEffect(() => {
     if (data?.ids?.length) {
       const defaultProject = data.entities[data.ids[0]];
@@ -32,6 +33,7 @@ const ProjectsBody = () => {
       setSelectedId(defaultProject.id);
       setSelectedImages(defaultProject.images.map((image) => image.url));
       setOpen(true);
+      setIsClicked(true)
     }
   }, [data]);
   //  const [imagesLength , setImagesLength] =useState("")
@@ -83,8 +85,8 @@ const ProjectsBody = () => {
             dots={false}
             lazyLoad="progressive"
             className="h-full w-full mt-10  overflow-hidden"
-            nextArrow={<SampleNextArrow/>}
-            prevArrow={<SamplePrevArrow/>}
+            nextArrow={<SampleNextArrow />}
+            prevArrow={<SamplePrevArrow />}
             responsive={[
               {
                 breakpoint: 2000,
@@ -110,14 +112,11 @@ const ProjectsBody = () => {
                   slidesToShow: 1,
                 },
               },
-            ]}
-            >
-              
+            ]}>
             {selectedImages.map((imageUrl, index) => (
               <div
                 key={index}
-                className=" h-full focus:outline-none active:outline-none w-full px-[10px] "
-                >
+                className=" h-full focus:outline-none active:outline-none w-full px-[10px] ">
                 <img
                   src={API_BASE_URL + imageUrl}
                   className="cursor-pointer  rounded-lg h-[20vh] w-[100vh] sm:h-[50vh] sm:w-[100vw] "
@@ -135,15 +134,18 @@ const ProjectsBody = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center py-[30px]">
           {data.ids.map((item, index) => {
             return (
-              <div key={index} className="px-[20px]">
-                <img
-                  src={API_BASE_URL + data.entities[item].primaryImage.url}
-                  alt={data.entities[item].nameEn}
-                  className={`cursor-pointer rounded-lg ${
+              <div key={index} className="px-[10px] py-[10px] md:w-[33vw] text-white sm:w-[50vw] w-[100vw] h-[50vh]">
+                <div
+                  className={` bg-cover bg-no-repeat bg-center w-full h-full  cursor-pointer  ${
                     selectedId === data.entities[item].id
                       ? "border-solid border-primary border-[10px]"
                       : "border-white"
                   }`}
+                  style={{
+                    backgroundImage: `url(${
+                      API_BASE_URL + data.entities[item].primaryImage.url
+                    })`,
+                  }}
                   onClick={() => {
                     // Set the selected image and open the div
                     setSelectedImg(
@@ -160,18 +162,30 @@ const ProjectsBody = () => {
                     );
 
                     setOpen(true);
-                  }}
-                />
-                <div
-                  className={`text-black text-smaller ${
-                    selectedId === data.entities[item].id
-                      ? "text-primary"
-                      : "text-black"
-                  }`}>
-                  {i18n.language === "en"
-                    ? data.entities[item].nameEn
-                    : data.entities[item].nameAr}
+                  }}>
+                  <div
+                    dir={i18n.language == "en" ? "ltr" : "rtl"}
+                    className={`flex flex-col h-full border group ${isClicked && selectedId===data.entities[item].id ? "from-primary/30  bg-gradient-to-t ":""} hover:from-primary/30 hover:bg-gradient-to-t    transition-all  duration-1000 p-4`}
+                    onClick={()=>{
+                      setIsClicked(true)
+                      setSelectedId(data.entities[item].id);
+                    }}
+                    >
+                    <p
+                      className={` group-hover:opacity-100 opacity-0 ${isClicked  && selectedId===data.entities[item].id ? "opacity-100 ":""} duration-500 ease-in-out  text-small text-white font-bold pt-[30%] flex justify-center items-center ${
+                        i18n.language == "en" ? "pl-[10px]" : "pr-[10px]"
+                      }  `}
+                      
+                      onClick={() =>{
+                        setSelectedId(data.entities[item].id);
+                      }}>
+                      {i18n.language == "en"
+                        ? data.entities[item].nameEn
+                        : data.entities[item].nameAr}
+                    </p>
+                  </div>
                 </div>
+                ;
               </div>
             );
           })}
