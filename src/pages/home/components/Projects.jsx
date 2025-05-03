@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState  , useEffect } from "react";
 import { useGetActiveProjectsQuery } from "../../../redux/projects/projectSlice";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -12,11 +12,20 @@ const Projects = () => {
     useGetActiveProjectsQuery();
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const [selectedImg, setSelectedImg] = useState("");
-  const [selectedDisc, setSelctedDisc] = useState("");
+  const [selectedDisc, setSelectedDisc] = useState("");
   const [selectedId, setSelectedId] = useState("");
 
+  
+useEffect(() => {
+  if (isSuccess && data?.ids?.length) {
+    const defaultItem = data.entities[data.ids[0]];
+    setSelectedImg(API_BASE_URL + defaultItem.primaryImage.url);
+    setSelectedDisc(i18n.language === "en" ? defaultItem.nameEn : defaultItem.nameAr);
+    setSelectedId(defaultItem.id);
+  }
+}, [data, isSuccess, i18n.language]);
   return isLoading || isFetching ? (
     <div className="py-44 flex justify-center items-center relative">
       <Loader />
@@ -109,7 +118,7 @@ const Projects = () => {
                       setSelectedImg(
                         API_BASE_URL + data.entities[item].primaryImage.url
                       );
-                      setSelctedDisc(
+                      setSelectedDisc(
                         i18n.language === "en"
                           ? data.entities[item].nameEn
                           : data.entities[item].nameAr
