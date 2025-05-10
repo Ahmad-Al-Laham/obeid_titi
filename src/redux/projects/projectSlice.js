@@ -28,8 +28,12 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
         ...result.ids.map((id) => ({ type: "Projects", id })),
       ],
     }),
+    getProjectById: builder.query ({
+      query:(args) => `/projects/${args.id}`,
+      providesTags: (result , error , args ) => [{type: "Project" , id:args.id}],
+    })
   }),
 });
 
-export const { useGetActiveProjectsQuery, useLazyGetActiveProjectsQuery} =
+export const { useGetActiveProjectsQuery, useLazyGetProjectByIdQuery} =
   projectsApiSlice;

@@ -6,32 +6,37 @@ import Loader from "../../../components/UI/Loader";
 import Slider from "react-slick";
 import { API_BASE_URL } from "../../../constants";
 import Arrow from "../../../assets/icons/Arrow.svg";
+import { useParams } from "react-router-dom";
 import {
   SampleNextArrow,
   SamplePrevArrow,
 } from "../../../components/UI/SliderArrows";
 
 const Projects = () => {
+  const {id} = useParams()
+  const [carouselSize ] = useState(4)
   const { data, isSuccess, isFetching, isLoading, isError } =
-    useGetActiveProjectsQuery();
+    useGetActiveProjectsQuery({
+      limit:carouselSize,
+    });
   const navigate = useNavigate();
   const { i18n, t } = useTranslation();
-  const [open, setOpen] = useState(true);
-  const [selectedImg, setSelectedImg] = useState("");
-  const [selectedDisc, setSelectedDisc] = useState("");
-  const [selectedId, setSelectedId] = useState("");
 
-  useEffect(() => {
-    if (isSuccess && data?.ids?.length) {
-      const defaultItem = data.entities[data.ids[0]];
-      setSelectedImg(API_BASE_URL + defaultItem.primaryImage.url);
-      setSelectedDisc(
-        i18n.language === "en" ? defaultItem.nameEn : defaultItem.nameAr
-      );
-      setSelectedId(defaultItem.id);
-    }
-  }, [data, isSuccess, i18n.language]);
-  
+  const [selectedId, setSelectedId] = useState("");
+  const [selectedImages, setSelectedImages] = useState([]);
+
+const handleSelectProject = (itemId) => {
+  const selectedItem = data.entities[itemId];
+  setSelectedImages(selectedItem.images);
+}
+
+  //useEffect(() => {
+  //  if (isSuccess && data?.ids?.length) {
+   //   const defaultItem = data.entities[data.ids[0]];
+    //  setSelectedId(defaultItem.id);
+  //  }
+ // }, [data, isSuccess, i18n.language]);
+
   return isLoading || isFetching ? (
     <div className="py-44 flex justify-center items-center relative">
       <Loader />
@@ -43,32 +48,24 @@ const Projects = () => {
   ) : (
     isSuccess && (
       <div>
-        <div className="text-black w-full  flex justify-start items-center my-[30px]">
-          <div className="bg-black flex  w-[43%] h-[3px] "></div>
-          <div className="flex  sm:text-bigger text-med px-[15px] font-[400]">
+        <div className="text-primary w-full max-w-[1920px]  flex justify-center items-center my-[30px]">
+
+          <div className={`bg-black ${i18n.language === "en"? "bg-gradient-to-l" : "bg-gradient-to-r"}  from-primary/100 flex  w-[20%] h-[4px] `}></div>
+
+          <div className="flex  sm:text-huge text-[37px] px-[2%]   font-bold">
             {t("projects")}
           </div>
+          <div className={`bg-black ${i18n.language === "en"? "bg-gradient-to-r" : "bg-gradient-to-l"}  from-primary/100 flex  w-[20%] h-[4px] `}></div>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <div
-            className={`grid grid-cols-1 md:grid-cols-2 px-[5%] ${
-              open ? "block" : "hidden"
-            }`}>
-            {selectedImg && (
-              <div>
-                <img
-                  src={selectedImg}
-                  alt="Selected"
-                  className="w-full h-auto rounded-xl"
-                />
-              </div>
-            )}
-            {selectedDisc && (
+          
+
+            {/* {selectedDisc && (
               <div className="text-black justify-center flex flex-col items-center sm:text-small text-smaller  ">
                 {selectedDisc}
               </div>
-            )}
-          </div>
+            )} */}
+          
 
           {/* Carousel */}
           <Slider
@@ -80,26 +77,26 @@ const Projects = () => {
             arrows={true}
             dots={false}
             lazyLoad="progressive"
-            className="h-full w-full mt-10"
+            className="h-full w-[77vw] mt-10"
             nextArrow={<SampleNextArrow />}
             prevArrow={<SamplePrevArrow />}
             responsive={[
               {
                 breakpoint: 2000,
                 settings: {
-                  slidesToShow: data.count >= 4 ? 4 : data.count,
+                  slidesToShow: data.count >= 4 ? 1 : data.count,
                 },
               },
               {
                 breakpoint: 1300,
                 settings: {
-                  slidesToShow: data.count >= 3 ? 3 : data.count,
+                  slidesToShow: data.count >= 3 ? 1 : data.count,
                 },
               },
               {
                 breakpoint: 1000,
                 settings: {
-                  slidesToShow: data.count >= 2 ? 2 : data.count,
+                  slidesToShow: data.count >= 2 ? 1 : data.count,
                 },
               },
               {
@@ -112,36 +109,32 @@ const Projects = () => {
             {data.ids.map((item, index) => {
               return (
                 <div
-                  key={index}
-                  className="px-[20px] focus:outline-none active:outline-none">
+                onClick={()=>{
+                  sessionStorage.setItem(
+                    "projectSlug",
+                    data.entities[item].id
+                  );
+                  navigate(`/project/${data.entities[item].id}`);
+                  
+                }}  
+                key={index}
+                  className=" focus:outline-none relative active:outline-none">
                   <img
                     src={API_BASE_URL + data.entities[item].primaryImage.url}
                     alt={data.entities[item].nameEn}
-                    className={`cursor-pointer rounded-lg ${
+                    className={`cursor-pointer rounded-lg md:h-[90vh] sm:h-[70vh] h-[50vh] w-full rounded-lg${
                       selectedId === data.entities[item].id
-                        ? "border-solid border-primary border-[10px]"
-                        : "border-white"
+                        ? " shadow-xl shadow-primary "
+                        : ""
                     }`}
-                    onClick={() => {
-                      // Set the selected image and open the div
-                      setSelectedImg(
-                        API_BASE_URL + data.entities[item].primaryImage.url
-                      );
-                      setSelectedDisc(
-                        i18n.language === "en"
-                          ? data.entities[item].nameEn
-                          : data.entities[item].nameAr
-                      );
-                      setSelectedId(data.entities[item].id);
 
-                      setOpen(true);
-                    }}
                   />
+                  <div className="h-full w-full bg-black/60 rounded-lg  absolute top-0"/>
                   <div
-                    className={`text-black text-small ${
+                    className={`text-white text-big absolute  left-1/2   ${i18n.language === "en" ? "lg:-translate-x-[50%] -translate-x-[50%] ": "lg:-translate-x-[50%] -translate-x-[50%]" }  -translate-y-6  top-1/2 bottom-1/2 ${
                       selectedId === data.entities[item].id
-                        ? "text-primary"
-                        : "text-black"
+                        ? "text-white"
+                        : "text-white"
                     }`}>
                     {i18n.language === "en"
                       ? data.entities[item].nameEn
@@ -152,7 +145,7 @@ const Projects = () => {
             })}
           </Slider>
           <div
-            className="flex bg-primary px-[12px] my-[30px] rounded-tr-lg rounded-bl-lg cursor-pointer group "
+            className={`flex   bg-primary  my-[30px] rounded-tr-lg rounded-bl-lg cursor-pointer group px-[20px] py-[10px] `}
             onClick={() => {
               navigate("/projects");
             }}>
@@ -176,3 +169,5 @@ const Projects = () => {
 };
 
 export default Projects;
+
+

@@ -120,7 +120,12 @@ i18n.use(initReactI18next).init({
           ProjectsDisc:"مشاريعنا هي شهادة على التزامنا بتجاوز التوقعات، وتحويل المساحات إلى ملاذات من الفخامة والمعيشة الراقية.",
           search:"ابحث",
           ProjectsDisc2:"من المفهوم إلى الإنجاز، نقوم بعناية فائقة بإختيار كل عنصر لضمان تحقيق رؤيتك ببراعة لا تشوبها شائبة والاهتمام بالتفاصيل",
-          MoreProjects:"مشاريع اخرى"
+          MoreProjects:"مشاريع اخرى",
+          errorMsg:"حدث خطأ",
+          ourProducts:"منتجاتنا",
+          ourLuxuryProducts:"منتجاتنا الراقية",
+          contactTitle:"يسعدنا أن نسمع منك",
+          homeContact:"تواصل معنا وأخبرنا برأيك ومقترحاتك",
         },
     },
     en: {
@@ -238,6 +243,12 @@ i18n.use(initReactI18next).init({
           search:"Search",
           ProjectsDisc2:"From concept to completion, we meticulously curate every element to ensure your vision is realized with impeccable artistry and attention to detail",
           MoreProjects:"Other Projects",
+          errorMsg:" error",
+          ourProducts:" Our Products",
+          ourLuxuryProducts:"Our Luxury Products",
+          contactTitle:"We Are Happy To hear From You",
+          homeContact:"Contact us and tell us your opinion and suggestions",
+
         },
     },
   },

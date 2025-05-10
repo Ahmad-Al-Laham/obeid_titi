@@ -6,6 +6,7 @@ import {
   MdRadioButtonChecked,
   MdRadioButtonUnchecked,
 } from "react-icons/md";
+
 export default function Dropdown() {
   const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
@@ -33,54 +34,20 @@ export default function Dropdown() {
       <div className="relative">
         <div
           style={{ WebkitTapHighlightColor: "transparent" }}
-          className=" m-0 relative text-primary text-center bg-white p-[5px] rounded-lg cursor-pointer"
-          onClick={() => setOpen(!open)}
+          className=" m-0 relative flex text-white text-center text-smaller  xl:text-[20px]  p-[5px] rounded-lg cursor-pointer"
+         
         >
-          <MdLanguage size={24} />
+          
+          {i18n.language=== "ar" ? (<div onClick={() =>{changeLanguage("en");}}>English</div>) : (<div onClick={() =>{changeLanguage("ar");}}>العربية</div>)}
+          
         </div>
 
-        <div
-          ref={ref}
-          onClick={() => setOpen(false)}
-          className={`${open ? "scale-100" : "scale-0"} absolute z-10 mt-4  ${
-            i18n.language == "en"
-              ? "origin-top  right-0 translate-x-[55px]"
-              : "origin-top left-0 -translate-x-[50px]"
-          } top-7 bg-third/80 rounded-lg shadow-2xl transition-all duration-300 p-4 space-y-2 text-white font-medium text-smaller w-40`}
-        >
-          <div
-            className="flex justify-start items-center cursor-pointer"
-            onClick={() => {
-              changeLanguage("en");
-            }}
-          >
-            <div className="px-2">
-              {i18n.language === "en" ? (
-                <MdRadioButtonChecked size={24} />
-              ) : (
-                <MdRadioButtonUnchecked size={24} />
-              )}
-            </div>
-            <p>{t("English")}</p>
-          </div>
 
-          <div
-            className="flex justify-start items-center cursor-pointer"
-            onClick={() => {
-              changeLanguage("ar");
-            }}
-          >
-            <div className="px-2">
-              {i18n.language === "ar" ? (
-                <MdRadioButtonChecked size={24} />
-              ) : (
-                <MdRadioButtonUnchecked size={24} />
-              )}
-            </div>
-            <p>{t("Arabic")}</p>
-          </div>
-        </div>
       </div>
     </div>
   );
 }
+
+
+
+

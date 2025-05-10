@@ -13,16 +13,13 @@ const Footer = () => {
 
   return (
     <div dir={i18n.language=== "en" ? "ltr" : "rtl"} className="max-w-[1920px] w-full relative space-y-10 flex flex-col justify-center items-center  pt-0">
-      <div className=" w-full grid grid-cols-1 lg:grid-cols-2  justify-center items-center font-Bitter   gap-x-5 text-white bg-primary h-[100%]  place-items-center p-[5%] gap-12">
-        <div className="">
-          <div className={`flex gap-10 justify-start pb-[3%]  max-w-max group `}>
-          <div className="text-small sm:text-big md:text-bigger lg:text-huge flex justify-center font-bold max-w-max  cursor-pointer">{t("ContactUs")} </div>
-          <div className="pt-[10px] max-w-max "><img src={CircledRight} alt="" className={`transition-all duration-500 cursor-pointer w-[30px] h-[30px] pb-[5px] sm:pb-[0] sm:w-[50px] sm:h-[50px] md:h-[50px] md:w-[50px]  group-hover:rotate-[360deg] ${i18n.language==="ar"?"rotate-[180deg] group-hover:rotate-[540deg]":""} `} /></div>
-          </div>
-          <div className="grid md:grid-cols-2 grid-cols-1">
-            <div>
-              <div className="text-smaller sm:text-small md:text-small  lg:text-big  font-semibold font-Bitter">{t("Showroom")}</div>
-              <div className="text-smaller sm:text-small lg:text-smaller 2xl:text-small pt-[3%] ">
+      <div className=" w-full grid grid-cols-1 lg:grid-cols-3  justify-start items-start font-Bitter   gap-x-5 text-white bg-primary h-[100%]  place-items-center p-[5%] gap-12">
+        
+
+          
+            <div className={` flex flex-col justify-start items-start lg:pb-[27%] xl:pb-[22%] pr-[20%] ${i18n.language === "en" ? "sm:pr-[20%] md:pr-[16%] pr-[35%]" :"sm:pl-[20%] md:pl-[16%] pl-[35%]"} lg:pt-[15%] 2xl:pt-[10%] `}>
+              <div className="text-small sm:text-small md:text-small  lg:text-big  font-semibold font-Bitter">{t("Showroom")}</div>
+              <div className="text-smaller sm:text-[18px] lg:text-smaller 2xl:text-small pt-[3%] ">
                 <p>{t("showroomLocation")}</p>
                 <div className="flex flex-col pt-[20px]">
                 <a href="tel:+963113311735" >{t("tel")}</a>
@@ -30,9 +27,9 @@ const Footer = () => {
                 </div>
               </div>
             </div> 
-            <div className="md:pl-[20%]">
-              <div className="text-smaller sm:text-small md:text-small   lg:text-big font-semibold font-Bitter pt-[3%] md:pt-[0%] ">{t("Office")}</div>
-              <div className="text-smaller sm:text-small lg:text-smaller 2xl:text-small pt-[3%]">
+            <div className="flex flex-col justify-start items-start lg:justify-center lg:pt-[15%] 2xl:pt-[10%] " >
+              <div className="text-small sm:text-small md:text-small   lg:text-big font-semibold font-Bitter pt-[3%] md:pt-[0%] ">{t("Office")}</div>
+              <div className="text-smaller sm:text-smaller lg:text-smaller 2xl:text-small pt-[3%]">
                 <p className="">
                  {t("OfficeSyriaLocation")} 
                 </p>
@@ -50,9 +47,9 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="text-center flex flex-col justify-center items-center">
+        
+        
+        <div className="text-center flex flex-col justify-center items-center lg:justify-start">
           <img src={logo} alt="LOGO" className="w-[120px] h-[120px] sm:w-[170px] sm:h-[170px] lg:h-[220px] 2xl:w-[220px] " />
           <div className=" text-med">{t("logoName")}</div>
           <p className={`${i18n.language==="en" ? "text-smaller":"text-small"} `}>{t("underLogo")}</p>

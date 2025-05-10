@@ -15,17 +15,18 @@ import { useTranslation } from "react-i18next";
 const PorfileBody = () => {
   const {t,i18n} = useTranslation()
   return (
-    <div className="max-w-[1920px] font-Bitter">
+    <div dir={i18n.language==="en" ? "ltr" : "rtl"} className="max-w-[1920px] font-Bitter flex flex-col ">
       <div dir={i18n.language==="en" ? "ltr" : "rtl"} className="flex text-black pt-[30px]">
         <div className="bg-black h-[3px] sm:w-[150px] w-[100px] sm:mt-[35px] mt-[20px]"></div>
         <div className="sm:text-bigger text-med pl-[25px]"> {t("AboutUs")}</div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10  overflow-hidden  justify-center   px-[10%] mb-[30px]">
-        <div className="text-black sm:text-small text-smaller order-2 lg:order-1  sm:w-full lg:pr-[20%] xl:pr-[0%] ">
+      <div className="flex flex-col justify-center items-center px-[10%] pb-[5%]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10  overflow-hidden  justify-center mb-[30px]">
+        <div className={`text-black sm:text-center lg:text-start sm:text-small text-smaller order-2 lg:order-1  sm:w-full ${i18n.language === "en" ? "lg:pr-[20%] xl:pr-[0%]": "lg:pl-[20%] xl:pl-[0%]"} `}>
           {t("profile1")}
         </div>
-        <div className=" gap-5 flex flex-col  order-1 lg:order-2  py-10 justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
+        <div className=" gap-5 flex flex-col  order-1 lg:order-2  py-10 lg:justify-end lg:items-end justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5   transition-all duration-300">
             <img
               src={topLeft1}
@@ -52,8 +53,8 @@ const PorfileBody = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10 overflow-hidden  justify-center px-[10%]">
-        <div className=" gap-5 flex flex-col  justify-center items-center   sm:h-full sm:w-full transition-all duration-300 ease-out-in">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10 overflow-hidden  justify-center ">
+        <div className=" gap-5 flex flex-col  lg:justify-start lg:items-start justify-center items-center   sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5  transition-all duration-300">
             <img
               src={topLeft2}
@@ -79,15 +80,15 @@ const PorfileBody = () => {
             />
           </div>
         </div>
-        <div className="text-black sm:text-small text-smaller  py-10 lg:pl-[25%] xl:pl-[0%] ">
+        <div className={`text-black sm:text-center lg:text-end sm:text-small text-smaller flex   py-10  ${i18n.language === "en"? "lg:pl-[25%] xl:pl-[0%]": "lg:pr-[20%] xl:pr-[0%]" } `}>
         {t("profile2")}
         </div>
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10 overflow-hidden justify-center px-[10%]">
-        <div className="text-black sm:text-small text-smaller order-2 lg:order-1 py-10 lg:pr-[20%] xl:pr-[0%] ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 items-center py-10 overflow-hidden justify-center">
+        <div className={`text-black sm:text-center lg:text-start sm:text-small text-smaller order-2 lg:order-1 py-10  ${i18n.language === "en" ? "lg:pr-[20%] xl:pr-[0%]": "lg:pl-[20%] xl:pl-[0%]"} `}>
         {t("profile3")}
         </div>
-        <div className=" gap-5 flex flex-col order-1 lg:order-2 justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
+        <div className=" gap-5 flex flex-col order-1 lg:order-2 lg:justify-end lg:items-end justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5  transition-all duration-300">
             <img
               src={topLeft3}
@@ -114,6 +115,7 @@ const PorfileBody = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

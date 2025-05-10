@@ -11,7 +11,13 @@ export const productsApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder) => ({
         getActiveProducts: builder.query({
             query: (args) => ({
-                url: "/product-active",
+                url: `/${
+                     args?.searchTerm
+                    ?`product/search/${args.searchTerm}`
+                    :"product-active"
+                }?page=${args?.page ? args.page : ""}&limit=${
+                    args?.limit ? args.limit : ""
+                }` ,
  
                 method: "GET",
             }),

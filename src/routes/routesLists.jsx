@@ -15,8 +15,20 @@ export const publicRoutes = [
     element:lazy(()=>import("../pages/contact/index.jsx"))
   },
   {
+    path:"/products",
+    element:lazy(()=>import("../pages/Products/index.jsx"))
+  },
+  {
     path: "/projects/:search",
     element: ProjectsPage,
+  },
+  {
+    path: "/project/:id",
+    element: lazy(() => import("../pages/project/index.jsx")),
+  },
+  {
+    path: "/product/:id",
+    element: lazy(() => import("../pages/product/index.jsx")),
   },
 ];
 

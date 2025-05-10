@@ -4,58 +4,25 @@ import { useGetCarouselContentQuery } from "../../../redux/carousel/carouselSlic
 import { API_BASE_URL } from "../../../constants";
 import Loader from '../../../components/UI/Loader'
 import { useTranslation } from "react-i18next";
-
+import header from '../../../assets/images/profile/header/header.png'
 const ProfileHeader = () => {
-  const {i18n} = useTranslation();
-  const {data , isSuccess , isLoading , isFetching } = useGetCarouselContentQuery();
-    return isLoading || isFetching ? (
-      <div className="h-screen flex justify-center items-center relative  ">
-          <Loader/>
-      </div>
-    ) : (
-      isSuccess &&(
-        <div className=" w-full  overflow-hidden relative">
-          <Slider
-          slidesToScroll={1}
-          slidesToShow={1}
-          touchMove
-          autoplay={true}
-          arrows
-          lazyLoad={true}
-          dots={true}
-          speed={500}
-          className="h-[100vh] w-full "
-  
-          >
-              {data.ids.map((item , index) =>{
-                return (
-                  <div key={index} className="h-[100vh] relative">
-                    <img
-                    src={API_BASE_URL + data.entities[item].image.url}
-                    className="w-full h-full object-cover object-top"
-                    />
-                    <div className="bg-gradient-to-b from-black/60 h-full w-full absolute top-0 left-0">
-                    <div className="bg-black/30 absolute h-full w-full top-0 left-0">
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/3 text-center text-white max-sm:w-full max-sm:p-10">
-                          <p className="text-med md:text-bigger lg:text-huge text-center font-semibold">
-                              {i18n.language == "en"
-                              ? data.entities[item].titleEn
-                              :data.entities[item].titleAr}
-                          </p>
-                          <p className="text-med md:text-bigger lg:text-huge text-center font-semibold">
-                              {i18n.language == "en"
-                              ? data.entities[item].discriptionEn
-                              :data.entities[item].discriptionAr}
-                          </p>
-                    </div>
-                    </div>
-                    </div>
-                  </div>
-                )
-              })}
-          </Slider>
+  const {i18n , t} = useTranslation();
+
+    return  (
+      <div className=' max-w-[1920px] flex flex-col font-Bitter '>
+      <div className='w-full h-[80vh] relative  bg-cover bg-center bg-no-repeat '
+        style={{
+          backgroundImage: `url(${header})`,
+        }}
+      >
+        <div className='sm:ext-[80px] text-huge flex justify-center items-center xl:pt-[17%] xl:pb-[17%] lg:pb-[25%] lg:pt-[25%]  md:pb-[30%] md:pt-[30%]   sm:pb-[37%] sm:pt-[37%] pb-[50%] pt-[50%]  bg-gradient-to-b from-black/60    '>
+        <div className='  font-bold'>
+        {t("whoWeAre")}
         </div>
-      )
+
+        </div>
+      </div>
+  </div>
     )
     
   

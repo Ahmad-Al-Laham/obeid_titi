@@ -16,10 +16,8 @@ import { useDispatch } from "react-redux";
 import { showMessage } from "../../../redux/messageAction.slice";
 
 const defaultFormState = {
-  fullName: "",
   email: "",
   message: "",
-  subject: "",
   phoneNumber: "",
 };
 
@@ -60,7 +58,7 @@ const ContactBody = () => {
   return (
     <div>
       <div className="text-black sm:text-huge text-bigger font-semibold pt-[5%] px-[5%] ">
-        {t("ContactUs")}
+        {t("getInTouch")}
       </div>
       <div className="text-black bg-white m-[5%]  shadow-xl p-[5%] pt-[0] grid  lg:grid-cols-2 grid-cols-1   justify-center items-center">
         <div className=" rounded-md w-full lg:order-1 order-2 p-10 flex flex-col space-y-3">
@@ -75,7 +73,7 @@ const ContactBody = () => {
               containerStyle={
                 " border-b-black  bg-white text-small mt-[20px] text-black"
               }
-              customStyle={"placeholder:text-third"}
+              customStyle={"placeholder:text-black"}
             />
           </div>
           <div className="flex  flex-row  gap-x-2 mt-2">
@@ -89,7 +87,7 @@ const ContactBody = () => {
               containerStyle={
                 "  border-b-black bg-white text-small my-[20px] text-black"
               }
-              customStyle={"placeholder:text-third"}
+              customStyle={"placeholder:text-black"}
             />
           </div>
           <CustomInput
@@ -104,7 +102,7 @@ const ContactBody = () => {
             containerStyle={
               "  border-b-black bg-transparent  text-small  text-black"
             }
-            customStyle={"placeholder:text-third"}
+            customStyle={"placeholder:text-black"}
           />
           <div className="flex justify-end items-end ">
             <Button

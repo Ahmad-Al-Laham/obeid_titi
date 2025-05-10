@@ -38,20 +38,16 @@ const NavBar = () => {
           className={`fixed max-w-[1920px] w-full top-2.5 left-1/2 right-1/2 justify-center   -translate-x-1/2 z-50 flex gap-x-2 sm:gap-x-6 transition-all duration-300 px-[3%]`}>
           <div
             dir={i18n.language == "en" ? "ltr" : "rtl"}
-            className={` transition-all duration-500 p-4 2xl:p-5 flex relative  justify-between items-center rounded-2xl shadow-md text-white w-full h-[75px] 2xl:h-[90px] gap-x-12 ${
+            className={` transition-all duration-500 p-4 2xl:p-5 flex relative   lg:justify-center justify-between items-center rounded-2xl shadow-md text-white w-full h-[75px] 2xl:h-[90px] gap-x-12 ${
               header
                 ? " bg-primary/90 shadow-2xl backdrop-blur-md"
                 : "shadow-none bg-transparent"
             }`}>
-            <div className={`   flex  justify-center items-center pb-[15px] `}>
-              <SearchBar />
-            </div>
+
             <div
-              className={`flex  justify-center items-center ${
-                i18n.language === "en" ? "pr-[8%]" : "pl-[8%]"
-              }`}>
+              className={`flex  justify-center items-center gap-8`}>
               <div
-                className={`flex justify-center items-center gap-x-8 2xl:gap-x-12  max-md:hidden  `}
+                className={`flex  lg:gap-x-8 2xl:gap-x-12  max-md:hidden  `}
                 dir={i18n.language == "en" ? "ltr" : "rtl"}>
                 {NavElement.map((e, index) => {
                   return (
@@ -92,10 +88,11 @@ const NavBar = () => {
                   );
                 })}
               </div>
-            </div>
-            <div className=" sm:block hidden ">
+              <div className="  max-md:hidden max-lg:hidden ">
               <Language />
             </div>
+            </div>
+
 
             <div className="flex justify-center items-center gap-x-2 sm:gap-x-6 lg:hidden ">
               <div
@@ -139,7 +136,7 @@ const NavBar = () => {
             />
           );
         })}
-        <div className="    sm:hidden block">
+        <div className=" ">
           <Language />
         </div>
       </Drawer>

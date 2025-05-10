@@ -1,14 +1,24 @@
 import React from 'react'
-import header from "../../../assets/images/projects/header.png"
-import bg from "../../../assets/images/projects/bg.png"
+import { useTranslation } from "react-i18next";
+import header from '../../../assets/images/projects/header.png'
 const ProjectsHeader = () => {
+  const {i18n , t} = useTranslation()
   return (
-    <div className=' h-[80vh] relativ'>
-      <img src={header}  alt="header"  className='w-full h-full ' />
-      <img src={bg}  alt="header"  className='w-full absolute -z-50 top-0'   />
-
-    </div>
-  )
+          <div className=' max-w-[1920px] flex flex-col font-Bitter '>
+          <div className='w-full h-[80vh] relative  bg-cover bg-center bg-no-repeat '
+            style={{
+              backgroundImage: `url(${header})`,
+            }}
+          >
+            <div className='sm:ext-[80px] sm:text-huge text-big flex justify-center items-center xl:pt-[17%] xl:pb-[17%] lg:pb-[25%] lg:pt-[25%]  md:pb-[30%] md:pt-[30%]   sm:pb-[37%] sm:pt-[37%] pb-[50%] pt-[50%]  bg-gradient-to-b from-black/80    '>
+            <div className='  font-bold'>
+            {t("projects")}
+            </div>
+    
+            </div>
+          </div>
+      </div>
+        )
 }
 
 export default ProjectsHeader

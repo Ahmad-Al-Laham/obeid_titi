@@ -23,19 +23,19 @@ const ProjectsBody = () => {
   const [selectedId, setSelectedId] = useState("");
   const [selectedImages, setSelectedImages] = useState("");
   const [isClicked , setIsClicked] = useState(false)
-  useEffect(() => {
-    if (data?.ids?.length) {
-      const defaultProject = data.entities[data.ids[0]];
-      setSelectedImg(API_BASE_URL + defaultProject.primaryImage.url);
-      setSelectedDisc(
-        i18n.language === "en" ? defaultProject.nameEn : defaultProject.nameAr
-      );
-      setSelectedId(defaultProject.id);
-      setSelectedImages(defaultProject.images.map((image) => image.url));
-      setOpen(true);
-      setIsClicked(true)
-    }
-  }, [data]);
+  //useEffect(() => {
+   // if (data?.ids?.length) {
+   //   const defaultProject = data.entities[data.ids[0]];
+  //    setSelectedImg(API_BASE_URL + defaultProject.primaryImage.url);
+  //    setSelectedDisc(
+   //     i18n.language === "en" ? defaultProject.nameEn : defaultProject.nameAr
+  //    );
+ //     setSelectedId(defaultProject.id);
+  //    setSelectedImages(defaultProject.images.map((image) => image.url));
+  //    setOpen(true);
+  //    setIsClicked(true)
+ //   }
+ // }, [data]);
   //  const [imagesLength , setImagesLength] =useState("")
 
   return isLoading || isFetching ? (
@@ -50,20 +50,12 @@ const ProjectsBody = () => {
     isSuccess && (
       <div className="flex flex-col justify-center items-center text-black">
         <div className="flex flex-col justify-center items-center px-[10%]">
-          <div className="sm:text-huge text-big   font-semibold pb-[30px] ">
-            {t("projects")}
-          </div>
-          <div className="text-center md:text-small text-smaller pb-[30px]">
+
+          <div className="text-center md:text-small text-smaller py-[4%]">
             {t("ProjectsDisc")}
           </div>
-
-          <SearchBar />
-
-          <div className="text-center md:text-small text-smaller py-[30px]">
-            {t("ProjectsDisc2")}
-          </div>
         </div>
-        <div className={`flex flex-col px-[5%] ${open ? "block" : "hidden"}`}>
+       {/* <div className={`flex flex-col px-[5%] ${open ? "block" : "hidden"}`}>
           {selectedImg && (
             <div className="w-full lg:h-[100vh] h-[50vh]">
               <img
@@ -73,8 +65,8 @@ const ProjectsBody = () => {
               />
             </div>
           )}
-        </div>
-        {selectedImages && (
+        </div>*/}
+        {/*selectedImages && (
           <Slider
             slidesToScroll={1}
             accessibility
@@ -125,21 +117,16 @@ const ProjectsBody = () => {
               </div>
             ))}
           </Slider>
-        )}
-        {selectedImg && (
-          <div className="text-black text-bigger pt-[30px]">
-            {t("MoreProjects")}
-          </div>
-        )}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-center items-center py-[30px]">
+        )*/}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center pb-[30px]">
           {data.ids.map((item, index) => {
             return (
               <div key={index} className="px-[10px] py-[10px] md:w-[33vw] text-white sm:w-[50vw] w-[100vw] h-[50vh]">
                 <div
                   className={` bg-cover bg-no-repeat bg-center w-full h-full  cursor-pointer  ${
                     selectedId === data.entities[item].id
-                      ? "border-solid border-primary border-[10px]"
-                      : "border-white"
+                      ? ""
+                      : ""
                   }`}
                   style={{
                     backgroundImage: `url(${
@@ -165,14 +152,14 @@ const ProjectsBody = () => {
                   }}>
                   <div
                     dir={i18n.language == "en" ? "ltr" : "rtl"}
-                    className={`flex flex-col h-full border group ${isClicked && selectedId===data.entities[item].id ? "from-primary/30  bg-gradient-to-t ":""} hover:from-primary/30 hover:bg-gradient-to-t    transition-all  duration-1000 p-4`}
+                    className={`flex flex-col h-full border group  bg-gradient-to-t from-primary/60 to-transparent lg:bg-gradient-to-b lg:from-transparent lg:to-primary/60  lg:opacity-0 hover:opacity-100     transition-all  duration-1000 p-4`}
                     onClick={()=>{
                       setIsClicked(true)
                       setSelectedId(data.entities[item].id);
                     }}
                     >
                     <p
-                      className={` group-hover:opacity-100 opacity-0 ${isClicked  && selectedId===data.entities[item].id ? "opacity-100 ":""} duration-500 ease-in-out  text-small text-white font-bold pt-[30%] flex justify-center items-center ${
+                      className={` group-hover:opacity-100 lg:opacity-0 opacity-100 duration-500 ease-in-out  text-small text-white font-bold pt-[30%] flex justify-center items-center ${
                         i18n.language == "en" ? "pl-[10px]" : "pr-[10px]"
                       }  `}
                       

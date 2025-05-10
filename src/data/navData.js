@@ -1,7 +1,7 @@
 export const NavElement = [
   { name: "home", link: "/" },
   { name: "whoWeAre", link: "/profile" },
-  { name: "products", link: "/producta" },
+  { name: "products", link: "/products" },
 
   // { name: "contact", link: "/contact" },
 ];
