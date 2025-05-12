@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
 import { API_BASE_URL } from '../../../constants';
-const header = ({data}) => {
+const Header = ({data}) => {
     const {i18n , t} = useTranslation();
   return (
           <div className=' max-w-[1920px] flex flex-col font-Bitter '>
@@ -21,4 +21,4 @@ const header = ({data}) => {
         )
 }
 
-export default header
+export default Header

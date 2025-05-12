@@ -1,5 +1,5 @@
 import React from 'react'
-import header from './components/header'
+import Header from './components/header'
 import ProductDetails from './components/ProductDetails'
 import { useTranslation } from 'react-i18next'
 import { useParams } from "react-router-dom";
@@ -24,7 +24,7 @@ const index = () => {
   ) : (
     isSuccess && (
       <div>
-        <header/>
+        <Header data={data}/>
         <ProductDetails data={data} />
 
       </div>

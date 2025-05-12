@@ -39,7 +39,13 @@ const Products = () => {
             {data.ids.map((item, index) => {
               if (index >= 0 && index <= 1)
                 return (
-                  <div key={index} className="cursor-pointer pt-[4%] ">
+                  <div onClick={() => {
+                    sessionStorage.setItem(
+                      "productSlug",
+                      data.entities[item].id
+                    );
+                    navigate(`/product/${data.entities[item].id}`)
+                  }} key={index} className="cursor-pointer pt-[4%] ">
                     <div className="bg-white w-[100%]  lg:w-[95%] h-[500px]    overflow-hidden ">
                       <div
                         className="w-[100%] lg:w-[100%] h-full   bg-cover bg-no-repeat bg-center"
