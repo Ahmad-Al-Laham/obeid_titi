@@ -4,7 +4,7 @@ const Location = () => {
   const {i18n , t} = useTranslation()
   return (
     <div>
-      <div className="text-black sm:text-huge text-bigger font-semibold py-[5%] px-[5%] ">
+      <div className="text-black sm:text-huge text-bigger font-semibold pb-[5%] px-[5%] ">
         {t("location")}
       </div>
       <div className=" grid grid-cols-1 lg:grid-cols-2 px-[5%]  pb-[5%]" >

@@ -55,8 +55,7 @@ const Footer = () => {
           <p className={`${i18n.language==="en" ? "text-smaller":"text-small"} `}>{t("underLogo")}</p>
           <div className="flex gap-10 pt-[20px]">
             <a href=""><img src={Facebook} alt="facebook" /></a>
-            <a href=""><img src={Instagram} alt="Instagram" /></a>
-            <a href=""><img src={Behance} alt="Behance" /></a>
+            <a href="https://www.instagram.com/obeid_titi/"><img src={Instagram} alt="Instagram" /></a>
             <a href=""><img src={YouTube} alt="YouTube" /></a>
           </div>
         </div>

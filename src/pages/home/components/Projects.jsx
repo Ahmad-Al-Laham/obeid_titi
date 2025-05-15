@@ -149,7 +149,7 @@ const handleSelectProject = (itemId) => {
             onClick={() => {
               navigate("/projects");
             }}>
-            <div className="text-smaller pr-[5px]  ">{t("viewMore")}</div>
+            <div className="text-smaller px-[5px]  ">{t("viewMore")}</div>
             <img
               src={Arrow}
               alt=""

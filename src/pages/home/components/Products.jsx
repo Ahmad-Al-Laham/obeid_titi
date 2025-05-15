@@ -82,7 +82,13 @@ const Products = () => {
             {data.ids.map((item, index) => {
               if (index >= 2 && index <= 3)
                 return (
-                  <div key={index} className="cursor-pointer pt-[4%] ">
+                  <div onClick={() => {
+                    sessionStorage.setItem(
+                      "productSlug",
+                      data.entities[item].id
+                    );
+                    navigate(`/product/${data.entities[item].id}`)
+                  }}  key={index} className="cursor-pointer pt-[4%] ">
                     <div className="bg-white w-[100%]  lg:w-[95%] h-[500px]    overflow-hidden ">
                       <div
                         className="w-[100%] lg:w-[100%] h-full   bg-cover bg-no-repeat bg-center"
@@ -120,7 +126,13 @@ const Products = () => {
             {data.ids.map((item, index) => {
               if (index >= 4 && index <= 5)
                 return (
-                  <div key={index} className="cursor-pointer pt-[4%] ">
+                  <div onClick={() => {
+                    sessionStorage.setItem(
+                      "productSlug",
+                      data.entities[item].id
+                    );
+                    navigate(`/product/${data.entities[item].id}`)
+                  }} key={index} className="cursor-pointer pt-[4%] ">
                     <div className="bg-white w-[100%]  lg:w-[95%] h-[500px]    overflow-hidden ">
                       <div
                         className="w-[100%] lg:w-[100%] h-full transition-all duration-300   bg-cover bg-no-repeat bg-center"
@@ -161,7 +173,7 @@ const Products = () => {
                     onClick={() => {
                       navigate("/products");
                     }}>
-                    <div className="text-smaller pr-[5px]  flex justify-center items-center  ">{t("viewMore")}</div>
+                    <div className="text-smaller px-[5px]  flex justify-center items-center  ">{t("viewMore")}</div>
                     <img
                       src={Arrow}
                       alt=""

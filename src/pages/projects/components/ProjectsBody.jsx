@@ -23,20 +23,7 @@ const ProjectsBody = () => {
   const [selectedId, setSelectedId] = useState("");
   const [selectedImages, setSelectedImages] = useState("");
   const [isClicked , setIsClicked] = useState(false)
-  //useEffect(() => {
-   // if (data?.ids?.length) {
-   //   const defaultProject = data.entities[data.ids[0]];
-  //    setSelectedImg(API_BASE_URL + defaultProject.primaryImage.url);
-  //    setSelectedDisc(
-   //     i18n.language === "en" ? defaultProject.nameEn : defaultProject.nameAr
-  //    );
- //     setSelectedId(defaultProject.id);
-  //    setSelectedImages(defaultProject.images.map((image) => image.url));
-  //    setOpen(true);
-  //    setIsClicked(true)
- //   }
- // }, [data]);
-  //  const [imagesLength , setImagesLength] =useState("")
+
 
   return isLoading || isFetching ? (
     <div className="py-44 flex justify-center items-center relative">
@@ -55,69 +42,7 @@ const ProjectsBody = () => {
             {t("ProjectsDisc")}
           </div>
         </div>
-       {/* <div className={`flex flex-col px-[5%] ${open ? "block" : "hidden"}`}>
-          {selectedImg && (
-            <div className="w-full lg:h-[100vh] h-[50vh]">
-              <img
-                src={selectedImg}
-                alt="Selected"
-                className="w-full h-full rounded-xl"
-              />
-            </div>
-          )}
-        </div>*/}
-        {/*selectedImages && (
-          <Slider
-            slidesToScroll={1}
-            accessibility
-            slidesToShow={4}
-            touchMove={true}
-            autoplay={false}
-            arrows={true}
-            dots={false}
-            lazyLoad="progressive"
-            className="h-full w-full mt-10  overflow-hidden"
-            nextArrow={<SampleNextArrow />}
-            prevArrow={<SamplePrevArrow />}
-            responsive={[
-              {
-                breakpoint: 2000,
-                settings: {
-                  slidesToShow: data.count >= 4 ? 4 : data.count,
-                },
-              },
-              {
-                breakpoint: 1700,
-                settings: {
-                  slidesToShow: data.count >= 3 ? 3 : data.count,
-                },
-              },
-              {
-                breakpoint: 1000,
-                settings: {
-                  slidesToShow: data.count >= 2 ? 2 : data.count,
-                },
-              },
-              {
-                breakpoint: 500,
-                settings: {
-                  slidesToShow: 1,
-                },
-              },
-            ]}>
-            {selectedImages.map((imageUrl, index) => (
-              <div
-                key={index}
-                className=" h-full focus:outline-none active:outline-none w-full px-[10px] ">
-                <img
-                  src={API_BASE_URL + imageUrl}
-                  className="cursor-pointer  rounded-lg h-[20vh] w-[100vh] sm:h-[50vh] sm:w-[100vw] "
-                  onClick={() => setSelectedImg(API_BASE_URL + imageUrl)}
-                />
-              </div>
-            ))}
-          </Slider>
-        )*/}
+ 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center pb-[30px]">
           {data.ids.map((item, index) => {
             return (

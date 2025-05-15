@@ -31,7 +31,7 @@ const AboutUs = () => {
           <img src={Arrow} alt="" className={`pt-[10%] pl-[10px]  ${i18n.language==="ar" ? "group-hover:-translate-x-5" : "group-hover:translate-x-5"} transition-all duration-300 ${i18n.language==="ar" ? "rotate-[180deg] mt-[25px]" : ""}`} />
           </div>
         </div>
-        <div className=" gap-5 flex flex-col  order-1 lg:order-2  py-10 lg:justify-end lg:items-end justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
+        <div className=" gap-5 flex flex-col  order-1 lg:order-2  py-[5%] lg:justify-end lg:items-end justify-center items-center  sm:h-full sm:w-full transition-all duration-300 ease-out-in">
           <div className="flex gap-5   transition-all duration-300">
             <img
               src={topLeft1}

@@ -29,7 +29,7 @@ export const projectsApiSlice = apiSlice.injectEndpoints({
       ],
     }),
     getProjectById: builder.query ({
-      query:(args) => `/projects/${args.id}`,
+      query:(args) => `/project/${args.id}`,
       providesTags: (result , error , args ) => [{type: "Project" , id:args.id}],
     })
   }),
