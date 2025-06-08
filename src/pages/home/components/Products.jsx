@@ -62,7 +62,7 @@ const Products = () => {
                         }}>
                         <div
                           dir={i18n.language == "en" ? "ltr" : "rtl"}
-                          className="flex flex-col h-full border group bg-gradient-to-t from-primary/60 to-transparent opacity-100 hover:opacity-0 transition-all text duration-1000 p-4">
+                          className="flex flex-col h-full border group bg-gradient-to-t from-primary/30 to-transparent opacity-100 hover:opacity-0 transition-all text duration-1000 p-4">
                           <p
                             className={`text-small group-hover:translate-y-[100px] duration-500 ease-in-out text-white font-bold mt-auto flex justify-center items-center ${
                               i18n.language == "en" ? "pl-[10px]" : "pr-[10px]"
@@ -106,7 +106,7 @@ const Products = () => {
                         }}>
                         <div
                           dir={i18n.language == "en" ? "ltr" : "rtl"}
-                          className="flex flex-col h-full border group bg-gradient-to-t from-primary/60 to-transparent opacity-100 hover:opacity-0 transition-all text duration-1000 p-4">
+                          className="flex flex-col h-full border group bg-gradient-to-t from-primary/30 to-transparent opacity-100 hover:opacity-0 transition-all text duration-1000 p-4">
                           <p
                             className={`text-small text-white group-hover:translate-y-[100px] duration-500 ease-in-out font-bold flex justify-center items-center mt-auto ${
                               i18n.language == "en" ? "pl-[10px]" : "pr-[10px]"
@@ -149,7 +149,7 @@ const Products = () => {
                         }}>
                         <div
                           dir={i18n.language == "en" ? "ltr" : "rtl"}
-                          className="flex flex-col h-full group bg-gradient-to-t from-primary/60 to-transparent opacity-100 hover:opacity-0 transition-all duration-1000 border p-4">
+                          className="flex flex-col h-full group bg-gradient-to-t from-primary/30 to-transparent opacity-100 hover:opacity-0 transition-all duration-1000 border p-4">
                           <p
                             className={`text-small text-white group-hover:translate-y-[100px] transition-all duration-500 ease-in-out flex justify-center items-center font-bold mt-auto ${
                               i18n.language == "en" ? "pl-[10px]" : "pr-[10px]"

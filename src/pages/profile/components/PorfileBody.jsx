@@ -18,7 +18,7 @@ const PorfileBody = () => {
     <div dir={i18n.language==="en" ? "ltr" : "rtl"} className="max-w-[1920px] font-Bitter flex flex-col ">
       <div dir={i18n.language==="en" ? "ltr" : "rtl"} className="flex text-black pt-[30px]">
         <div className="bg-black h-[3px] sm:w-[150px] w-[100px] sm:mt-[35px] mt-[20px]"></div>
-        <div className="sm:text-bigger text-med pl-[25px]"> {t("AboutUs")}</div>
+        <div className="sm:text-bigger text-med px-[25px]"> {t("AboutUs")}</div>
       </div>
 
       <div className="flex flex-col justify-center items-center px-[10%] pb-[5%]">

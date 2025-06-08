@@ -118,7 +118,7 @@ const handleSelectProject = (itemId) => {
                   
                 }}  
                 key={index}
-                  className=" focus:outline-none relative active:outline-none">
+                  className=" focus:outline-none relative active:outline-none cursor-pointer">
                   <img
                     src={API_BASE_URL + data.entities[item].primaryImage.url}
                     alt={data.entities[item].nameEn}

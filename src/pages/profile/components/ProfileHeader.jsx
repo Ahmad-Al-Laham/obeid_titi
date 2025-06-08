@@ -4,13 +4,13 @@ import { useGetCarouselContentQuery } from "../../../redux/carousel/carouselSlic
 import { API_BASE_URL } from "../../../constants";
 import Loader from '../../../components/UI/Loader'
 import { useTranslation } from "react-i18next";
-import header from '../../../assets/images/profile/header/header.png'
+import header from '../../../assets/images/profile/header/header2.svg'
 const ProfileHeader = () => {
   const {i18n , t} = useTranslation();
 
     return  (
       <div className=' max-w-[1920px] flex flex-col font-Bitter '>
-      <div className='w-full h-[80vh] relative  bg-cover bg-center bg-no-repeat '
+      <div className='w-full h-[80vh] relative   bg-cover bg-center bg-no-repeat '
         style={{
           backgroundImage: `url(${header})`,
         }}

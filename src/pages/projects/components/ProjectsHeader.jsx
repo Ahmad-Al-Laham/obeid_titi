@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from "react-i18next";
-import header from '../../../assets/images/projects/header.png'
+import header from '../../../assets/images/projects/header2.svg'
 const ProjectsHeader = () => {
   const {i18n , t} = useTranslation()
   return (

@@ -6,10 +6,9 @@ const LinkElement = ({ name, link, styled, onClick }) => {
       onClick={onClick}
       style={({ isActive }) => {
         return {
-          color: isActive ? "#fff" : "white",
-          borderRadius: 0,
-          // borderWidth:2 ,
-          fontWeight: isActive ? "bold" : "normal",
+          color:"white",  
+          borderBottomColor: isActive ? "white" :"transparent",                                                                                                         
+          borderBottomWidth: "2px"
         };
       }}
       to={link}

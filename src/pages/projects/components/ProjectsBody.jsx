@@ -46,7 +46,11 @@ const ProjectsBody = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center items-center pb-[30px]">
           {data.ids.map((item, index) => {
             return (
-              <div key={index} className="px-[10px] py-[10px] md:w-[33vw] text-white sm:w-[50vw] w-[100vw] h-[50vh]">
+              <div key={index} className="px-[10px] py-[10px] md:w-[33vw] text-white sm:w-[50vw] w-[100vw] h-[50vh]"
+              onClick={() => {
+                navigate(`/project/${data.entities[item].id}`)
+              }}
+              >
                 <div
                   className={` bg-cover bg-no-repeat bg-center w-full h-full  cursor-pointer  ${
                     selectedId === data.entities[item].id

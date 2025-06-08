@@ -18,10 +18,8 @@ export const publicRoutes = [
     path:"/products",
     element:lazy(()=>import("../pages/Products/index.jsx"))
   },
-  {
-    path: "/projects/:search",
-    element: ProjectsPage,
-  },
+
+  
   {
     path: "/project/:id",
     element: lazy(() => import("../pages/project/index.jsx")),

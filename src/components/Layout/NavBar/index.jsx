@@ -6,7 +6,7 @@ import { MdDehaze } from "react-icons/md";
 import { handleScroll } from "../../../helpers/scroll";
 import { NavElement } from "../../../data/navData";
 import { NavElement2 } from "../../../data/navData";
-import Logo from "../../../assets/logos/logo.svg";
+import Logo from "../../../assets/logos/footerLogo.svg";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { MdSearch } from "react-icons/md";
